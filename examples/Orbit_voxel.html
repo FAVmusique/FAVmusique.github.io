@@ -59,9 +59,7 @@
 				info.style.textAlign = 'center';
 				info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <strong>shift + click</strong>: remove Box';
 				container.appendChild( info );
-				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-				camera.position.set( 500, 800, 1300 );
-				camera.lookAt( new THREE.Vector3() );
+			
 				scene = new THREE.Scene();
 				// roll-over helpers
 				rollOverGeo = new THREE.BoxGeometry( 50, 50, 50 );
@@ -80,7 +78,7 @@
 					geometry.vertices.push( new THREE.Vector3( i, 0, - size ) );
 					geometry.vertices.push( new THREE.Vector3( i, 0,   size ) );
 				}
-				var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: false } );
+				var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: true } );
 				var line = new THREE.LineSegments( geometry, material );
 				scene.add( line );
 				//
