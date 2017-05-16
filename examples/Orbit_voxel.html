@@ -174,6 +174,137 @@
 			render(); // remove when using next line for animation loop (requestAnimationFrame)
 			//animate();
 			function init() {
+126
+                                        rollOverMesh.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+127
+                                }
+128
+                                render();
+129
+                        }
+130
+                        function onDocumentMouseDown( event ) {
+131
+                                event.preventDefault();
+132
+                                mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
+133
+                                raycaster.setFromCamera( mouse, camera );
+134
+                                var intersects = raycaster.intersectObjects( objects );
+135
+                                if ( intersects.length > 0 ) {
+136
+                                        var intersect = intersects[ 0 ];
+137
+                                        // delete cube
+138
+                                        if ( isShiftDown ) {
+139
+                                                if ( intersect.object != plane ) {
+140
+                                                        scene.remove( intersect.object );
+141
+                                                        objects.splice( objects.indexOf( intersect.object ), 1 );
+142
+                                                }
+143
+                                        // create cube
+144
+                                        } else {
+145
+                                                var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
+146
+                                                voxel.position.copy( intersect.point ).add( intersect.face.normal );
+147
+                                                voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
+148
+                                                scene.add( voxel );
+149
+                                                objects.push( voxel );
+150
+                                        }
+151
+                                        render();
+152
+                                }
+153
+                        }
+154
+                        function onDocumentKeyDown( event ) {
+155
+                                switch( event.keyCode ) {
+156
+                                        case 16: isShiftDown = true; break;
+157
+                                }
+158
+                        }
+159
+                        function onDocumentKeyUp( event ) {
+160
+                                switch ( event.keyCode ) {
+161
+                                        case 16: isShiftDown = false; break;
+162
+                                }
+163
+                        }
+164
+                        
+165
+                </script>
+166
+                <!-- vovex paint End-->
+167
+                
+168
+                <!-- Control_Orbit start-->
+169
+                <script>
+170
+                        if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+171
+                        var stats;
+172
+                        var camera, controls, scene, renderer;
+173
+                        init();
+174
+                        render(); // remove when using next line for animation loop (requestAnimationFrame)
+175
+                        //animate();
+176
+                        function init() {
+177
+                                scene = new THREE.Scene();
+178
+                                scene.fog = new THREE.FogExp2( 0xffffff, 0.002 );
+179
+                                renderer = new THREE.WebGLRenderer();
+180
+                                renderer.setClearColor( scene.fog.color );
+181
+                                renderer.setPixelRatio( window.devicePixelRatio );
+182
+                                renderer.setSize( window.innerWidth, window.innerHeight );
+183
+                                var container = document.getElementById( 'container' );
+184
+                                container.appendChild( renderer.domElement );
+185
+                                camera = new THREE.PerspectiveCamera( 74, window.innerWidth / window.innerHeight, 1, 1000 );
+186
+                                camera.position.z = 1000;
+187
+                                controls = new THREE.OrbitControls( camera, renderer.domElement );
+188
+                                controls.addEventListener( 'change', render ); // remove when using animation loop
+189
+                                // enable animation loop when using damping or autorotation
+190
+                                //controls.enableDamping = true;
+
 				scene = new THREE.Scene();
 				scene.fog = new THREE.FogExp2( 0xffffff, 0.002 );
 				renderer = new THREE.WebGLRenderer();
@@ -236,7 +367,7 @@
 			 
 	var url = canvas.toDataURL();
 	var a = document.createElement('a');
-	info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <strong>shift + click</strong>: remove Box, <a href=<';
+	info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <strong>shift + click</strong>: remove Box, <a href="javascript:save()">save .png</a>';
 	a.download = 'my.png';
 	a.href = url;
 	a.textContent = 'Download PNG';
