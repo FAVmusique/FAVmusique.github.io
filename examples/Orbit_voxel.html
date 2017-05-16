@@ -233,6 +233,11 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 				render();
 			}
 			
+			function onWindowResize() {
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+			}
 			
 			function render() {
 				renderer.render( scene, camera );
