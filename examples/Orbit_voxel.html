@@ -93,20 +93,7 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 				scene.add( plane );
 				objects.push( plane );
 				// Lights
-				var ambientLight = new THREE.AmbientLight( 0x606060 );
-				scene.add( ambientLight );
-				var directionalLight = new THREE.DirectionalLight( 0xffffff );
-				directionalLight.position.set( 1, 0.75, 0.5 ).normalize();
-				scene.add( directionalLight );
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
-				renderer.setClearColor( 0xf0f0f0 );
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-				container.appendChild( renderer.domElement );
-				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
-				document.addEventListener( 'mousedown', onDocumentMouseDown, false );
-				document.addEventListener( 'keydown', onDocumentKeyDown, false );
-				document.addEventListener( 'keyup', onDocumentKeyUp, false );
+				
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
@@ -165,110 +152,15 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 		</script>
 		<!-- vovex paint End-->
 		
-		<!-- Control_Orbit start-->
-		<script>
-			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-			var stats;
-			var camera, controls, scene, renderer;
-			init();
-			render(); // remove when using next line for animation loop (requestAnimationFrame)
-			//animate();
-			function init() {
-126
-                                        rollOverMesh.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
-127
-                                }
-128
-                                render();
-129
-                        }
-130
-                        function onDocumentMouseDown( event ) {
-131
-                                event.preventDefault();
-132
-                                mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
-133
-                                raycaster.setFromCamera( mouse, camera );
-134
-                                var intersects = raycaster.intersectObjects( objects );
-135
-                                if ( intersects.length > 0 ) {
-136
-                                        var intersect = intersects[ 0 ];
-137
-                                        // delete cube
-138
-                                        if ( isShiftDown ) {
-139
-                                                if ( intersect.object != plane ) {
-140
-                                                        scene.remove( intersect.object );
-141
-                                                        objects.splice( objects.indexOf( intersect.object ), 1 );
-142
-                                                }
-143
-                                        // create cube
-144
-                                        } else {
-145
-                                                var voxel = new THREE.Mesh( cubeGeo, cubeMaterial );
-146
-                                                voxel.position.copy( intersect.point ).add( intersect.face.normal );
-147
-                                                voxel.position.divideScalar( 50 ).floor().multiplyScalar( 50 ).addScalar( 25 );
-148
-                                                scene.add( voxel );
-149
-                                                objects.push( voxel );
-150
-                                        }
-151
-                                        render();
-152
-                                }
-153
-                        }
-154
-                        function onDocumentKeyDown( event ) {
-155
-                                switch( event.keyCode ) {
-156
-                                        case 16: isShiftDown = true; break;
-157
-                                }
-158
-                        }
-159
-                        function onDocumentKeyUp( event ) {
-160
-                                switch ( event.keyCode ) {
-161
-                                        case 16: isShiftDown = false; break;
-162
-                                }
-163
-                        }
-164
-                        
-165
-                </script>
-166
-                <!-- vovex paint End-->
-167
-                
-168
-                <!-- Control_Orbit start-->
-169
+		                <!-- Control_Orbit start-->
+
                 <script>
-170
+
                         if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
-171
-                        var stats;
-172
+                       var stats;
+
                         var camera, controls, scene, renderer;
-173
+
                         init();
 174
                         render(); // remove when using next line for animation loop (requestAnimationFrame)
@@ -323,8 +215,22 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 				//controls.dampingFactor = 0.25;
 				controls.enableZoom = true;
 				// world
-			
-				
+				// Lights
+				var ambientLight = new THREE.AmbientLight( 0x606060 );
+				scene.add( ambientLight );
+				var directionalLight = new THREE.DirectionalLight( 0xffffff );
+				directionalLight.position.set( 1, 0.75, 0.5 ).normalize();
+				scene.add( directionalLight );
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setClearColor( 0xf0f0f0 );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+				document.addEventListener( 'mousedown', onDocumentMouseDown, false );
+				document.addEventListener( 'keydown', onDocumentKeyDown, false );
+				document.addEventListener( 'keyup', onDocumentKeyUp, false );
+				//
 				//
 				stats = new Stats();
 				container.appendChild( stats.dom );
