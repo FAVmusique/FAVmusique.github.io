@@ -40,24 +40,6 @@
 		<script src="js/libs/stats.min.js"></script>
 		
 		
-		
-   				<!-- SAVE START-->
-		 <script>
-    	var canvas = document.createElement("canvas");
-	canvas.width = 578;
-	canvas.height = 200;
-			 
-	var url = canvas.toDataURL();
-	var a = document.createElement('a');
-	a.download = 'my.png';
-	a.href = url;
-	a.textContent = 'Download PNG';
-
-
-document.body.appendChild(a);
-		</script>
-			<!-- SAVE END-->
-		
 		<!-- Voxex paint start-->
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
@@ -245,6 +227,22 @@ document.body.appendChild(a);
 		</script>
 				<!-- Control_Orbit End-->
 		
+		<!-- SAVE START-->
+		 <script>
+    	var canvas = document.createElement("canvas");
+	canvas.width = 578;
+	canvas.height = 200;
+			 
+	var url = canvas.toDataURL();
+	var a = document.createElement('a');
+	a.download = 'my.png';
+	a.href = url;
+	a.textContent = 'Download PNG';
+
+
+document.body.appendChild(a);
+		</script>
+			<!-- SAVE END-->
 
 	</body>
 </html>
