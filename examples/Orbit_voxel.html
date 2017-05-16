@@ -62,7 +62,7 @@
 				info.style.top = '10px';
 				info.style.width = '100%';
 				info.style.textAlign = 'center';
-				info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <strong>shift + click</strong>: remove Box, <a href="javascript:save()">save .png</a>';
+				info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <strong>shift + click</strong>: remove Box,';
 				container.appendChild( info );
 			
 				scene = new THREE.Scene();
@@ -231,15 +231,16 @@
 		
 				<!-- SAVE START-->
 		 <script>
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
+    	 
+var url = canvas.toDataURL();
+var a = document.createElement('a');
+a.download = 'my.png';
+a.href = url;
+a.textContent = 'Download PNG';
 
-      // save canvas image as data url (png format by default)
-      var dataURL = canvas.toDataURL();
 
-      // set canvasImg image src to dataURL
-      // so it can be saved as an image
-      document.getElementById('canvasImg').src = dataURL;
+
+document.body.appendChild(a);
 		</script>
 			<!-- SAVE END-->
 	</body>
