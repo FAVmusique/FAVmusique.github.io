@@ -39,9 +39,25 @@
 		<script src="js/renderers/CanvasRenderer.js"></script>
 		<script src="js/libs/stats.min.js"></script>
 		
-		<canvas id="myCanvas" width="578" height="200" style="display:none;"></canvas>
-   		<img id="canvasImg" alt="Right click to save me!">
-   
+		
+		
+   				<!-- SAVE START-->
+		 <script>
+    	var canvas = document.createElement("canvas");
+	canvas.width = 578;
+	canvas.height = 200;
+			 
+	var url = canvas.toDataURL();
+	var a = document.createElement('a');
+	a.download = 'my.png';
+	a.href = url;
+	a.textContent = 'Download PNG';
+
+
+document.body.appendChild(a);
+		</script>
+			<!-- SAVE END-->
+		
 		<!-- Voxex paint start-->
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
@@ -229,18 +245,6 @@
 		</script>
 				<!-- Control_Orbit End-->
 		
-				<!-- SAVE START-->
-		 <script>
-    	 
-var url = canvas.toDataURL();
-var a = document.createElement('a');
-a.download = 'my.png';
-a.href = url;
-a.textContent = 'Download PNG';
 
-
-document.body.appendChild(a);
-		</script>
-			<!-- SAVE END-->
 	</body>
 </html>
