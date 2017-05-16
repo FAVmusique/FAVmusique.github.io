@@ -191,17 +191,7 @@
 				//controls.dampingFactor = 0.25;
 				controls.enableZoom = true;
 				// world
-				var geometry = new THREE.CylinderGeometry( 0, 10, 30, 4, 1 );
-				var material =  new THREE.MeshPhongMaterial( { color:0xffffff, shading: THREE.FlatShading } );
-				for ( var i = 0; i < 500; i ++ ) {
-					var mesh = new THREE.Mesh( geometry, material );
-					mesh.position.x = ( Math.random() - 0.5 ) * 1000;
-					mesh.position.y = ( Math.random() - 0.5 ) * 1000;
-					mesh.position.z = ( Math.random() - 0.5 ) * 1000;
-					mesh.updateMatrix();
-					mesh.matrixAutoUpdate = false;
-					scene.add( mesh );
-				}
+			
 				// lights
 				light = new THREE.DirectionalLight( 0xffffff );
 				light.position.set( 1, 1, 1 );
