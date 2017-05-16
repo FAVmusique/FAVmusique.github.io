@@ -37,10 +37,11 @@
 		<script src="js/Detector.js"></script>
 		<script src="js/renderers/Projector.js"></script>
 		<script src="js/renderers/CanvasRenderer.js"></script>
-		
-		
 		<script src="js/libs/stats.min.js"></script>
-
+		
+		<canvas id="myCanvas" width="578" height="200" style="display:none;"></canvas>
+   		<img id="canvasImg" alt="Right click to save me!">
+   
 		<!-- Voxex paint start-->
 		<script>
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
@@ -220,14 +221,6 @@
 				render();
 			}
 			
-			function save() {
-				var canvas = document.getElementById("canvas");
-				var ctx = canvas.getContext("2d");
-				
-
-		//var w=window.open('about:blank','image from canvas');
-w.document.write("<img src='"+canvas.toDataURL("image/png")+"' alt='from canvas'/>");
-			}
 			
 			function render() {
 				renderer.render( scene, camera );
@@ -236,6 +229,18 @@ w.document.write("<img src='"+canvas.toDataURL("image/png")+"' alt='from canvas'
 		</script>
 				<!-- Control_Orbit End-->
 		
-			
+				<!-- SAVE START-->
+		 <script>
+      var canvas = document.getElementById('myCanvas');
+      var context = canvas.getContext('2d');
+
+      // save canvas image as data url (png format by default)
+      var dataURL = canvas.toDataURL();
+
+      // set canvasImg image src to dataURL
+      // so it can be saved as an image
+      document.getElementById('canvasImg').src = dataURL;
+		</script>
+			<!-- SAVE END-->
 	</body>
 </html>
