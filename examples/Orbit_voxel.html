@@ -6,17 +6,17 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<style>
 			body {
-				color: #fff;
+				color: #000;
 				font-family:Monospace;
 				font-size:13px;
 				text-align:center;
 				font-weight: bold;
-				background-color: #000;
+				background-color: #fff;
 				margin: 0px;
 				overflow: hidden;
 			}
 			#info {
-				color:#fff;
+				color:#000;
 				position: absolute;
 				top: 0px; width: 100%;
 				padding: 5px;
@@ -92,6 +92,7 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 				plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
 				scene.add( plane );
 				objects.push( plane );
+				
 				// Lights
 				var ambientLight = new THREE.AmbientLight( 0x606060 );
 				scene.add( ambientLight );
@@ -109,12 +110,7 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 				document.addEventListener( 'keyup', onDocumentKeyUp, false );
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
-			}
-			function onWindowResize() {
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-				renderer.setSize( window.innerWidth, window.innerHeight );
-			}
+			
 			function onDocumentMouseMove( event ) {
 				event.preventDefault();
 				mouse.set( ( event.clientX / window.innerWidth ) * 2 - 1, - ( event.clientY / window.innerHeight ) * 2 + 1 );
@@ -175,42 +171,22 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
                         var camera, controls, scene, renderer;
 
                         init();
-174
                         render(); // remove when using next line for animation loop (requestAnimationFrame)
-175
                         //animate();
-176
                         function init() {
-177
                                 scene = new THREE.Scene();
-178
                                 scene.fog = new THREE.FogExp2( 0xffffff, 0.002 );
-179
                                 renderer = new THREE.WebGLRenderer();
-180
                                 renderer.setClearColor( scene.fog.color );
-181
                                 renderer.setPixelRatio( window.devicePixelRatio );
-182
                                 renderer.setSize( window.innerWidth, window.innerHeight );
-183
                                 var container = document.getElementById( 'container' );
-184
-                                
-				;
-185
-                                camera = new THREE.PerspectiveCamera( 74, window.innerWidth / window.innerHeight, 1, 1000 );
-186
-                                camera.position.z = 1000;
-187
+                                camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 1000 );
+                                camera.position.z = 500;
                                 controls = new THREE.OrbitControls( camera, renderer.domElement );
-188
                                 controls.addEventListener( 'change', render ); // remove when using animation loop
-189
                                 // enable animation loop when using damping or autorotation
-190
                                 //controls.enableDamping = true;
-
 				scene = new THREE.Scene();
 				scene.fog = new THREE.FogExp2( 0xffffff, 0.002 );
 				renderer = new THREE.WebGLRenderer();
@@ -229,6 +205,16 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 				controls.enableZoom = true;
 				// world
 				
+				// lights
+				light = new THREE.DirectionalLight( 0xffffff );
+				light.position.set( 1, 1, 1 );
+				scene.add( light );
+				light = new THREE.DirectionalLight( 0x002288 );
+				light.position.set( -1, -1, -1 );
+				scene.add( light );
+				light = new THREE.AmbientLight( 0x222222 );
+				scene.add( light );
+
 				//
 				stats = new Stats();
 				container.appendChild( stats.dom );
