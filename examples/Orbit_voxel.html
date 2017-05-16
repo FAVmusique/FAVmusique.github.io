@@ -170,7 +170,7 @@
 			//animate();
 			function init() {
 				scene = new THREE.Scene();
-				scene.fog = new THREE.FogExp2( 0xcccccc, 0.0002 );
+				scene.fog = new THREE.FogExp2( 0xcccccc, 0.001 );
 				renderer = new THREE.WebGLRenderer();
 				renderer.setClearColor( scene.fog.color );
 				renderer.setPixelRatio( window.devicePixelRatio );
