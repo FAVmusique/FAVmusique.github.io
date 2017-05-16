@@ -213,9 +213,16 @@
 				stats.update();
 				render();
 			}
+			
+			function save() {
+				window.open( renderer.domElement.toDataURL('image/png'), 'mywindow' );
+				return false;
+			}
+			
 			function render() {
 				renderer.render( scene, camera );
 			}
+			
 		</script>
 					var canvas = document.getElementById("mycanvas");	<!-- Control_Orbit End-->
 		
