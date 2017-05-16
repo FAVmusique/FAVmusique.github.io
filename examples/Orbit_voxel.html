@@ -291,7 +291,8 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 183
                                 var container = document.getElementById( 'container' );
 184
-                                container.appendChild( renderer.domElement );
+                                
+				;
 185
                                 camera = new THREE.PerspectiveCamera( 74, window.innerWidth / window.innerHeight, 1, 1000 );
 186
@@ -358,24 +359,7 @@ info.innerHTML = 'voxel painter - webgl<br><strong>click</strong>: add a Box, <s
 		</script>
 				<!-- Control_Orbit End-->
 		
-		<!-- SAVE START-->
-		 <script>
-			 
-    	var canvas = document.createElement("canvas");
-	canvas.width = 578;
-	canvas.height = 200;
-			 
-	var url = canvas.toDataURL();
-	var a = document.createElement('a');
-	
-	a.download = 'my.png';
-	a.href = url;
-	a.textContent = 'Download PNG';
 
-
-container.appendChild(a);
-		</script>
-			<!-- SAVE END-->
 
 	</body>
 </html>
