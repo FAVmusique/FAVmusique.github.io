@@ -219,6 +219,9 @@
 			}
 			
 			function save() {
+				var w=window.open('about:blank','image from canvas');
+
+w.document.write("<img w.document.write("<img src='"+canvas.toDataURL("image/png")+"' alt='from canvas'/>");
 				window.open( renderer.domElement.toDataURL('image/png'), 'mywindow' );
 				return false;
 			}
