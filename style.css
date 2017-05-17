@@ -1,7 +1,11 @@
 /*
 * multi-line comment
 */
-p{ line-height: 2em; text-align: justify; }
+div #main {
+    display: flex;
+    justify-content:space-between; 
+}
+p{ line-height: 2em; }
 h1, h2, h3, h4{
     color: orange;
 	font-weight: normal;
