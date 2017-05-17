@@ -5,7 +5,7 @@ div #main {
     display: flex;
     justify-content:center; 
 }
-p{ line-height: 1em; }
+p{ line-height: 2em; }
 h1, h2, h3, h4{
     color: orange;
 	font-weight: normal;
