@@ -22,6 +22,14 @@ a{
 	a:hover,
 	a:active{ text-decoration: underline; }
 
+img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
+
 /* you can structure your code's white space so that it is as readable for when you come back in the future or for other people to read and edit quickly */
 
 body{
