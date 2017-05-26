@@ -70,6 +70,8 @@
 				rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
 				scene.add( rollOverMesh );
 				// cubes
+				object3d.castShadow = true;
+				object3d.receiveShadow = false;
 				cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
 				cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( "../favtextures/blueSquare.jpg" ) } );
 				// grid
@@ -83,6 +85,7 @@
 				}
 				var material = new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2, transparent: true } );
 				var line = new THREE.LineSegments( geometry, material );
+				scene.add( line );
 				
 				//
 				raycaster = new THREE.Raycaster();
@@ -107,6 +110,7 @@
 				document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 				document.addEventListener( 'keydown', onDocumentKeyDown, false );
 				document.addEventListener( 'keyup', onDocumentKeyUp, false );
+				
 				//
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
@@ -201,7 +205,9 @@
 				scene.add( light );
 				light = new THREE.AmbientLight( 0x222222 );
 				scene.add( light );
-				scene.add( line );
+				//Shadow
+				light.castShadow = true;
+				light.shadowDarkness = 0.5;
 				//
 				stats = new Stats();
 				container.appendChild( stats.dom );
@@ -222,7 +228,10 @@
 			
 			
 			function render() {
+				renderer.shadowMapEnabled = true;
+				renderer.shadowMapType = THREE.PCFSoftShadowMap;
 				renderer.render( scene, camera );
+				
 			}
 			
 		</script>
