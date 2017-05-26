@@ -95,12 +95,17 @@
 				plane = new THREE.Mesh( geometry, new THREE.MeshBasicMaterial( { visible: false } ) );
 				scene.add( plane );
 				objects.push( plane );
+				//Shadow
+				light.castShadow = true;
+				light.shadowDarkness = 0.5;
 				// Lights
 				var ambientLight = new THREE.AmbientLight( 0x606060 );
 				scene.add( ambientLight );
 				var directionalLight = new THREE.DirectionalLight( 0xffffff );
 				directionalLight.position.set( 1, 0.75, 0.5 ).normalize();
 				scene.add( directionalLight );
+				renderer.shadowMapEnabled = true;
+				renderer.shadowMapType = THREE.PCFSoftShadowMap;
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setClearColor( 0xf0f0f0 );
 				renderer.setPixelRatio( window.devicePixelRatio );
@@ -205,9 +210,7 @@
 				scene.add( light );
 				light = new THREE.AmbientLight( 0x222222 );
 				scene.add( light );
-				//Shadow
-				light.castShadow = true;
-				light.shadowDarkness = 0.5;
+			
 				//
 				stats = new Stats();
 				container.appendChild( stats.dom );
@@ -228,8 +231,6 @@
 			
 			
 			function render() {
-				renderer.shadowMapEnabled = true;
-				renderer.shadowMapType = THREE.PCFSoftShadowMap;
 				renderer.render( scene, camera );
 				
 			}
