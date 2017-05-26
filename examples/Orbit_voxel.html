@@ -45,13 +45,9 @@
 			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 			var stats;
 			var camera, controls, scene, renderer;
-			init();
-			render();
-			// Voxex paint start
-	
 			
+			// Voxex paint start
 			var container;
-			var camera, scene, renderer;
 			var plane, cube;
 			var mouse, raycaster, isShiftDown = false;
 			var rollOverMesh, rollOverMaterial;
@@ -161,7 +157,7 @@
 		// vovex paint End -->
 			
 			// remove when using next line for animation loop (requestAnimationFrame)
-			animate();
+			//animate();
 			function init() {
 				
 				scene = new THREE.Scene();
