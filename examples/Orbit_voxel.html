@@ -70,8 +70,8 @@
 				rollOverMesh = new THREE.Mesh( rollOverGeo, rollOverMaterial );
 				scene.add( rollOverMesh );
 				// cubes
-				object3d.castShadow = true;
-				object3d.receiveShadow = false;
+				cubeGeo.castShadow = true;
+				cubeGeo.receiveShadow = false;
 				cubeGeo = new THREE.BoxGeometry( 50, 50, 50 );
 				cubeMaterial = new THREE.MeshLambertMaterial( { color: 0xfeb74c, map: new THREE.TextureLoader().load( "../favtextures/blueSquare.jpg" ) } );
 				// grid
