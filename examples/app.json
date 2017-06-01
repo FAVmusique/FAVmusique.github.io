@@ -1,0 +1,168 @@
+{
+	"metadata": {
+		"type": "App"
+	},
+	"project": {
+		"gammaInput": false,
+		"gammaOutput": false,
+		"shadows": true,
+		"vr": false
+	},
+	"camera": {
+		"metadata": {
+			"version": 4.5,
+			"type": "Object",
+			"generator": "Object3D.toJSON"
+		},
+		"object": {
+			"uuid": "54F19DD5-C254-4B80-A5AD-6FEFFE218E16",
+			"type": "PerspectiveCamera",
+			"name": "Camera",
+			"matrix": [0.060371,0,-0.998176,0,-0.29105,0.956546,-0.017603,0,0.954801,0.291582,0.057747,0,6.045216,1.846119,0.36562,1],
+			"fov": 50,
+			"zoom": 1,
+			"near": 0.1,
+			"far": 10000,
+			"focus": 10,
+			"aspect": 1.715517,
+			"filmGauge": 35,
+			"filmOffset": 0
+		}
+	},
+	"scene": {
+		"metadata": {
+			"version": 4.5,
+			"type": "Object",
+			"generator": "Object3D.toJSON"
+		},
+		"geometries": [
+			{
+				"uuid": "FABFAD6D-721C-4DCA-A796-4D6CF6AA8ADF",
+				"type": "PlaneBufferGeometry",
+				"width": 2,
+				"height": 2,
+				"widthSegments": 0,
+				"heightSegments": 0
+			},
+			{
+				"uuid": "EA4BFFF0-AA33-4F1D-9D45-B299E6DA4BC6",
+				"type": "BoxBufferGeometry",
+				"width": 1,
+				"height": 1,
+				"depth": 1
+			}],
+		"materials": [
+			{
+				"uuid": "8FFF4C54-0F35-46ED-8F49-5D0024881549",
+				"type": "MeshStandardMaterial",
+				"color": 16777215,
+				"roughness": 0.5,
+				"metalness": 0.5,
+				"emissive": 0,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"skinning": false,
+				"morphTargets": false,
+				"dithering": false
+			},
+			{
+				"uuid": "3F3F7AC7-C871-4857-88E4-178247EC5195",
+				"type": "MeshStandardMaterial",
+				"color": 16777215,
+				"roughness": 0.5,
+				"metalness": 0.5,
+				"emissive": 0,
+				"depthFunc": 3,
+				"depthTest": true,
+				"depthWrite": true,
+				"skinning": false,
+				"morphTargets": false,
+				"dithering": false
+			}],
+		"object": {
+			"uuid": "3741222A-BD8F-401C-A5D2-5A907E891896",
+			"type": "Scene",
+			"name": "Scene",
+			"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1],
+			"children": [
+				{
+					"uuid": "DF2B8803-A781-444A-AC09-1C2255A07F62",
+					"type": "DirectionalLight",
+					"name": "DirectionalLight 1",
+					"castShadow": true,
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,1.232929,5.467714,7.5,1],
+					"color": 16777215,
+					"intensity": 1,
+					"shadow": {
+						"camera": {
+							"uuid": "808081EE-B4B2-469D-9D9F-52E9D402466B",
+							"type": "OrthographicCamera",
+							"zoom": 1,
+							"left": -5,
+							"right": 5,
+							"top": 5,
+							"bottom": -5,
+							"near": 0.5,
+							"far": 500
+						}
+					}
+				},
+				{
+					"uuid": "3C5653CD-9713-4514-B8FF-7787950513D4",
+					"type": "Mesh",
+					"name": "Plane 2",
+					"castShadow": true,
+					"receiveShadow": true,
+					"matrix": [10,0,0,0,0,0,-10,0,0,10,0,0,0,0,0,1],
+					"geometry": "FABFAD6D-721C-4DCA-A796-4D6CF6AA8ADF",
+					"material": "8FFF4C54-0F35-46ED-8F49-5D0024881549"
+				},
+				{
+					"uuid": "DF48BDEB-E668-4659-AC3A-2D7A845616B2",
+					"type": "Mesh",
+					"name": "Box 3",
+					"castShadow": true,
+					"receiveShadow": true,
+					"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,0,0.492306,0,1],
+					"geometry": "EA4BFFF0-AA33-4F1D-9D45-B299E6DA4BC6",
+					"material": "3F3F7AC7-C871-4857-88E4-178247EC5195",
+					"children": [
+						{
+							"uuid": "E39EF573-3856-4D60-9D27-487CA03E7721",
+							"type": "SpotLight",
+							"name": "SpotLight 1",
+							"castShadow": true,
+							"matrix": [1,0,0,0,0,1,0,0,0,0,1,0,5,12.461008,7.5,1],
+							"color": 16777215,
+							"intensity": 1,
+							"distance": 18.58,
+							"angle": 0.314159,
+							"decay": 1,
+							"penumbra": 1,
+							"shadow": {
+								"camera": {
+									"uuid": "6A53DA23-02D1-4C34-8834-B15FCAAFC7D1",
+									"type": "PerspectiveCamera",
+									"fov": 36,
+									"zoom": 1,
+									"near": 0.5,
+									"far": 18.58,
+									"focus": 10,
+									"aspect": 1,
+									"filmGauge": 35,
+									"filmOffset": 0
+								}
+							}
+						}]
+				}],
+			"background": 11184810,
+			"fog": {
+				"type": "FogExp2",
+				"color": 11184810,
+				"density": 0.05
+			}
+		}
+	},
+	"scripts": {}
+}
