@@ -1,7 +1,5 @@
-function sayHello() {
-   alert("
 
-
+<div class="container">
 <img src="Logo1.png" alt="LOGO" width=800/>
 
 	
@@ -14,7 +12,7 @@ function sayHello() {
 			<ul id="menu">
 				
   <li class="violet"><a href="index.html">Accueil</a><!--
-Menu
+
 --><li class="bleu"><a href="nous.html">Nous</a>
     <!--
 --><li class="orange"><a href="conceptions.html">Conceptions</a>
@@ -53,5 +51,4 @@ Menu
   </li>
 </ul>
 		</div>
-")
-}
+
