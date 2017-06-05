@@ -6,9 +6,7 @@ div #main {
     justify-content:center; 
     position:absolute;
     width:50%;
-    
- 
-	
+    margin: auto;
 }
 p{ line-height: 2em; }
 h1, h2, h3, h4{
