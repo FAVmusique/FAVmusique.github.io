@@ -1,6 +1,11 @@
 /*
 * multi-line comment
 */
+.center {
+    text-align: center;
+    color: red;
+}
+
 div #main {
     	display: flex;
     	justify-content:center; 
