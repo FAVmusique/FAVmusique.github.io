@@ -77,7 +77,9 @@ body {font-family: Verdana,sans-serif;}
 */
 .center {
     	max-width: 600px;
+	justify-content:center;
 	text-align: center;
+	
     
 }
 
